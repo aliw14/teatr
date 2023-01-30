@@ -145,12 +145,12 @@ class Program
                 int row = int.Parse(Console.ReadLine());
                 Console.Write("yeri secin:");
                 int column = int.Parse(Console.ReadLine());
-                place[row - 1, column - 1] = "*";
+                place[row - 1, column - 1] = " *  ";
                 for (int i = 0; i < 10; i++)
                 {
                     for (int j = 0; j < 20; j++)
                     {
-                        Console.Write($"{place[i, j]}" + "");
+                        Console.Write($"{place[i, j]} ");
                     }
                     Console.WriteLine();
                 }
