@@ -40,7 +40,7 @@ namespace TaetrProjekt
         }
         public override string ToString()
         {
-            return $"Price:{Price}|_____|Count:{Count}|_____|Toplam Hesab:{Price += Count * Price}";
+            return $"Price:{Price}|_____|Count:{Count}|_____|Toplam Hesab:{Count * Price}";
         }
     }
 }

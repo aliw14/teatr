@@ -10,6 +10,8 @@ namespace TaetrProjekt
         {
             if (ticketCount > 149)
                 Console.WriteLine("Bilet sayi 150-dir!");
+
+            tickets[ticketCount++]=(Ticket)entity;
         }
 
         public void Delete(int id)

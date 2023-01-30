@@ -5,23 +5,76 @@ class Program
     {
         var filmManager = new FilmManager();
         string command = "";
+
+        Film[] films =
+        {
+            new Film
+            {
+                Id=1,
+                Name="FURY"
+            },
+            new Film
+            {
+                Id=2,
+                Name="American Sniper"
+            },
+        };
+
+        var hallManager = new HallManager();
+        Hall[] halls =
+        {
+                new Hall
+                {
+                        Name="zal 1",
+                        Id=1
+
+                },
+                new Hall
+                {
+                    Id=2,
+                    Name="zal 2"
+                },
+
+         };
+
+        var sessionmanager = new SessionManager();
+        Session[] sessions =
+        {
+                new Session
+                {
+                        Id=1,
+                        Time="11:30"
+                },
+                new Session
+                {
+                    Id=2,
+                    Time="17:45"
+                },
+            };
+
+        var ticketManager = new TicketManager();
+        Ticket[] tickets =
+        {
+                new Ticket
+                {
+                        Id=1,
+                        Count=2,
+                        Price=10
+                },
+                new Ticket
+                {
+                        Id=2,
+                        Count=1,
+                        Price=15
+                },
+
+            };
+
         do
         {
             Console.Write("Enter the command:");
             command = Console.ReadLine();
-            Film[] films =
-            {
-                new Film
-                {
-                    Id=1,
-                    Name="FURY"
-                },
-                new Film
-                {
-                    Id=2,
-                    Name="American Sniper"
-                },
-            };
+
             if (command.ToLower().Equals("add film"))
             {
                 var film1 = new Film
@@ -68,217 +121,187 @@ class Program
                 };
                 filmManager.Update(id, film2);
             }
-        } while (command.ToLower() != "quit");
-
-        {
-            var hallManager = new HallManager();
-            string command1 = "";
-            do
+            else if(command.ToLower().Equals("buy ticket"))
             {
-                Console.Write("enter the command:");
-                command1 = Console.ReadLine();
-                Hall[] halls =
+                var ticket = new Ticket();
+                sessionmanager.Print();
+                Console.Write("hansi id olan seansi almaq isteyirsiz");
+                int id = int.Parse(Console.ReadLine());
+                sessionmanager.Get(id);
+                string[,] place = new string[10, 20];
+                ticket.Id = 1;
+                ticket.Price = 15;
+                for (int  i= 0;  i< 10; i++)
                 {
-                new Hall
-                {
-                     Name="zal 1",
-                      Id=1
-
-                },
-                new Hall
-                {
-                    Id=2,
-                    Name="zal 2"
-                },
-
-               };
-                if (command1.ToLower().Equals("add hall"))
-                {
-                    var hall1 = new Hall
+                    for (int j = 0; j < 20; j++)
                     {
-                        Name = "zal 1",
-                        Id = 1,
-                        Column = 20,
-                        Raw = 10
-                    };
-                    var hall2 = new Hall
+                        place[i, j] = "bos";
+                        Console.Write($"{place[i, j]}");
+                    }
+                }
+                Console.WriteLine();
+                Console.Write("sirani secin:");
+                int row = int.Parse(Console.ReadLine());
+                Console.Write("yeri secin:");
+                int column = int.Parse(Console.ReadLine());
+                place[row - 1, column - 1] = "dolu";
+                for (int i = 0; i < 10; i++)
+                {
+                    for (int j = 0; j < 20; j++)
                     {
-                        Id = 2,
-                        Name = "zal 2",
-                        Column = 20,
-                        Raw = 10
-
-                    };
-                    hallManager.Add(hall1);
-                    hallManager.Add(hall2);
+                        Console.Write($"{place[i, j]}" + "");
+                    }
                 }
-                else if (command1.ToLower().Equals("print hall"))
-                {
-                    hallManager.Print();
-                }
-                else if (command1.ToLower().Equals("delete hall"))
-                {
-                    Console.Write("enter the id:");
-                    var id = int.Parse(Console.ReadLine());
-                    hallManager.Delete(id);
-                }
-                else if (command1.ToLower().Equals("update hall"))
-                {
-                    Console.Write("Enter the id:");
-                    var id = int.Parse(Console.ReadLine());
-                    var existHall = hallManager.Get(id);
-                    if (existHall == null)
-                        continue;
-                    Console.WriteLine(existHall);
-                    var hall2 = new Hall
-                    {
-                        Id = 2,
-                        Name = "zal 2",
-                        Column = 20,
-                        Raw = 10
-                    };
-                    hallManager.Update(id, hall2);
-                }
-
-            } while (command1.ToLower() != "quit");
+                Console.WriteLine();
+                ticketManager.Add(ticket);
+                ticketManager.Get(1);
+                Console.WriteLine("bilet alindi!");
+              
+            }
+        
+            else if (command.ToLower().Equals("add hall"))
             {
-                var sessionmanager = new SessionManager();
-                string command2 = "";
-                do
+                var hall1 = new Hall
                 {
-                    Console.Write("enter the command:");
-                    command2 = Console.ReadLine();
-                    Session[] sessions =
-                    {
-                new Session
+                    Name = "zal 1",
+                    Id = 1,
+                    Column = 20,
+                    Raw = 10
+                };
+                var hall2 = new Hall
                 {
-                     Id=1,
-                      Time="11:30"
-                },
-                new Session
-                {
-                    Id=2,
-                    Time="17:45"
-                },
-            };
-                    if (command.ToLower().Equals("add session"))
-                    {
-                        var session1 = new Session
-                        {
-                            Id = 1,
-                            film = "FURY",
-                            hall = "zal 1",
-                            Time = "11:30"
-                        };
-                        var session2 = new Session
-                        {
-                            Id = 2,
-                            film = "American Sniper",
-                            hall = "zal 2",
-                            Time = "17:45"
-                        };
-                        sessionmanager.Add(session1);
-                        sessionmanager.Add(session2);
-                    }
-                    else if (command2.ToLower().Equals("print session"))
-                    {
-                        sessionmanager.Print();
-                    }
-                    else if (command2.ToLower().Equals("delete student"))
-                    {
-                        Console.Write("enter the id:");
-                        var id = int.Parse(Console.ReadLine());
-                        sessionmanager.Delete(id);
-                    }
-                    else if (command2.ToLower().Equals("update session"))
-                    {
-                        Console.Write("enter the id:");
-                        var id = int.Parse(Console.ReadLine());
-                        var existSession = sessionmanager.Get(id);
-                        if (existSession == null)
-                            continue;
-                        Console.WriteLine(existSession);
-                        var session2 = new Session
-                        {
-                            Id = 3,
-                            Time = "19:00",
-                            film = "vikings",
-                            hall = "zal 3"
-                        };
-                        sessionmanager.Update(id, session2);
-                    }
-                } while (command2.ToLower() != "quit");
-                var ticketManager = new TicketManager();
-                string command3 = "";
-
-                do
-                {
-
-                    Ticket[] tickets =
-                    {
-                    new Ticket
-                    {
-                         Id=1,
-                          Count=2,
-                            Price=10
-                    },
-                    new Ticket
-                    {
-                         Id=2,
-                          Count=1,
-                          Price=15
-                    },
+                    Id = 2,
+                    Name = "zal 2",
+                    Column = 20,
+                    Raw = 10
 
                 };
-                    if (command3.ToLower().Equals("add ticket"))
-                    {
-                        var ticket1 = new Ticket
-                        {
-                            Id = 1,
-                            Count = 2,
-                            Price = 10
-                        };
-                        var ticket2 = new Ticket
-                        {
-                            Id = 2,
-                            Count = 1,
-                            Price = 15
-                        };
-                        ticketManager.Add(ticket1);
-                        ticketManager.Add(ticket2);
-
-                    }
-                    else if (command.ToLower().Equals("print ticket"))
-                    {
-                        ticketManager.Print();
-                    }
-                    else if (command.ToLower().Equals("delete ticket"))
-                    {
-                        Console.Write("enter the id:");
-                        var id = int.Parse(Console.ReadLine());
-                        ticketManager.Delete(id);
-                    }
-                    else if (command1.ToLower().Equals("update ticket"))
-                    {
-                        Console.Write("Enter the id:");
-                        var id = int.Parse(Console.ReadLine());
-                        var existTicket = ticketManager.Get(id);
-                        if (existTicket == null)
-                            continue;
-                        Console.WriteLine(existTicket);
-                        var ticket2 = new Ticket
-                        {
-                            Id = 2,
-                            Count = 2,
-                            Price = 12
-
-                        };
-                        hallManager.Update(id, ticket2);
-                    }
-
-                }
-                    while (command3.ToLower() != "quit") ;
+                hallManager.Add(hall1);
+                hallManager.Add(hall2);
             }
-        }
+            else if (command.ToLower().Equals("print hall"))
+            {
+                hallManager.Print();
+            }
+            else if (command.ToLower().Equals("delete hall"))
+            {
+                Console.Write("enter the id:");
+                var id = int.Parse(Console.ReadLine());
+                hallManager.Delete(id);
+            }
+            else if (command.ToLower().Equals("update hall"))
+            {
+                Console.Write("Enter the id:");
+                var id = int.Parse(Console.ReadLine());
+                var existHall = hallManager.Get(id);
+                if (existHall == null)
+                    continue;
+                Console.WriteLine(existHall);
+                var hall2 = new Hall
+                {
+                    Id = 2,
+                    Name = "zal 2",
+                    Column = 20,
+                    Raw = 10
+                };
+                hallManager.Update(id, hall2);
+            }
+
+            else if (command.ToLower().Equals("add session"))
+            {
+                var session1 = new Session
+                {
+                    Id = 1,
+                    film = "FURY",
+                    hall = "zal 1",
+                    Time = "11:30"
+                };
+                var session2 = new Session
+                {
+                    Id = 2,
+                    film = "American Sniper",
+                    hall = "zal 2",
+                    Time = "17:45"
+                };
+                sessionmanager.Add(session1);
+                sessionmanager.Add(session2);
+            }
+            else if (command.ToLower().Equals("print session"))
+            {
+                sessionmanager.Print();
+            }
+            else if (command.ToLower().Equals("delete student"))
+            {
+                Console.Write("enter the id:");
+                var id = int.Parse(Console.ReadLine());
+                sessionmanager.Delete(id);
+            }
+            else if (command.ToLower().Equals("update session"))
+            {
+                Console.Write("enter the id:");
+                var id = int.Parse(Console.ReadLine());
+                var existSession = sessionmanager.Get(id);
+                if (existSession == null)
+                    continue;
+                Console.WriteLine(existSession);
+                var session2 = new Session
+                {
+                    Id = 3,
+                    Time = "19:00",
+                    film = "vikings",
+                    hall = "zal 3"
+                };
+                sessionmanager.Update(id, session2);
+            }
+
+
+            
+            else if (command.ToLower().Equals("add ticket"))
+            {
+                var ticket1 = new Ticket
+                {
+                    Id = 1,
+                    Count = 2,
+                    Price = 10
+                };
+                var ticket2 = new Ticket
+                {
+                    Id = 2,
+                    Count = 1,
+                    Price = 15
+                };
+                ticketManager.Add(ticket1);
+                ticketManager.Add(ticket2);
+
+            }
+            else if (command.ToLower().Equals("print ticket"))
+            {
+                ticketManager.Print();
+            }
+            else if (command.ToLower().Equals("delete ticket"))
+            {
+                Console.Write("enter the id:");
+                var id = int.Parse(Console.ReadLine());
+                ticketManager.Delete(id);
+            }
+            else if (command.ToLower().Equals("update ticket"))
+            {
+                Console.Write("Enter the id:");
+                var id = int.Parse(Console.ReadLine());
+                var existTicket = ticketManager.Get(id);
+                if (existTicket == null)
+                    continue;
+                Console.WriteLine(existTicket);
+                var ticket2 = new Ticket
+                {
+                    Id = 2,
+                    Count = 2,
+                    Price = 12
+
+                };
+                hallManager.Update(id, ticket2);
+            }
+
+        } while (command.ToLower() != "quit");
     }
 }
