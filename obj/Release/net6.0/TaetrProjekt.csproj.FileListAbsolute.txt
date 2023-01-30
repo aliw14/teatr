@@ -1,0 +1,15 @@
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/bin/Release/net6.0/TaetrProjekt
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/bin/Release/net6.0/TaetrProjekt.deps.json
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/bin/Release/net6.0/TaetrProjekt.runtimeconfig.json
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/bin/Release/net6.0/TaetrProjekt.dll
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/bin/Release/net6.0/TaetrProjekt.pdb
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.csproj.AssemblyReference.cache
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.GeneratedMSBuildEditorConfig.editorconfig
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.AssemblyInfoInputs.cache
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.AssemblyInfo.cs
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.csproj.CoreCompileInputs.cache
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.dll
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/refint/TaetrProjekt.dll
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.pdb
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/TaetrProjekt.genruntimeconfig.cache
+/Users/ali/Projects/TaetrProjekt/TaetrProjekt/obj/Release/net6.0/ref/TaetrProjekt.dll
