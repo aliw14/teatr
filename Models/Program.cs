@@ -125,7 +125,7 @@ class Program
             {
                 var ticket = new Ticket();
                 sessionmanager.Print();
-                Console.Write("hansi id olan seansi almaq isteyirsiz");
+                Console.Write("hansi id olan filmi almaq isteyirsiz");
                 int id = int.Parse(Console.ReadLine());
                 sessionmanager.Get(id);
                 string[,] place = new string[10, 20];
@@ -135,22 +135,24 @@ class Program
                 {
                     for (int j = 0; j < 20; j++)
                     {
-                        place[i, j] = "bos";
+                        place[i, j] = "bos ";
                         Console.Write($"{place[i, j]}");
                     }
+                    Console.WriteLine();
                 }
                 Console.WriteLine();
                 Console.Write("sirani secin:");
                 int row = int.Parse(Console.ReadLine());
                 Console.Write("yeri secin:");
                 int column = int.Parse(Console.ReadLine());
-                place[row - 1, column - 1] = "dolu";
+                place[row - 1, column - 1] = "*";
                 for (int i = 0; i < 10; i++)
                 {
                     for (int j = 0; j < 20; j++)
                     {
                         Console.Write($"{place[i, j]}" + "");
                     }
+                    Console.WriteLine();
                 }
                 Console.WriteLine();
                 ticketManager.Add(ticket);
