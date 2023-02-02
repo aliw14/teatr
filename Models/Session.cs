@@ -14,7 +14,7 @@ namespace TaetrProjekt
         public override string ToString()
             
         {
-            return $"time:{Time}\nhall:{hall}";
+            return $"-----------------\nId:{Id}\nFilm:{film}\nTime:{Time}\nHall:{hall}\n----------------\n";
         }
     }
 }

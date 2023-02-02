@@ -9,7 +9,7 @@ namespace TaetrProjekt
 
 		internal decimal Price { get; set; }
 
-		internal int Count { get; set; }
+		//internal int Count { get; set; }
         
         internal decimal BuyTicket(int sessionId , int sessionQuantity)
 
@@ -40,7 +40,7 @@ namespace TaetrProjekt
         }
         public override string ToString()
         {
-            return $"Price:{Price}|_____|Count:{Count}|_____|Toplam Hesab:{Count * Price}";
+            return $"----------------\nid:{Id}\nPrice:{Price}\n----------------\n";
         }
     }
 }

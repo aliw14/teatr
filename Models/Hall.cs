@@ -11,7 +11,7 @@ namespace TaetrProjekt
         internal int Column { get; set; }
         public override string ToString()
         {
-            return $"name:{Name}\nraw:{Raw}\ncolumn:{Column}";
+            return $"-----------------\nname:{Name}\nraw:{Raw}\ncolumn:{Column}\n-----------------\n";
         }
     }
 }

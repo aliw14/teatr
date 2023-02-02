@@ -8,7 +8,7 @@ namespace TaetrProjekt
 		internal decimal Budget { get; set; }
         public override string ToString()
         {
-            return $"name:{Name}\nFilmDirector:{FilmDirector}\nBudget:{Budget}";
+            return $"-----------------\nId:{Id}\n{"Name:",-7}{Name}\n{"FilmDirector:",-7}{FilmDirector}\n{"Budget:",-7}{Budget}\n-----------------\n";
         }
     }
 }

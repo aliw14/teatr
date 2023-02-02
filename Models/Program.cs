@@ -58,13 +58,13 @@ class Program
                 new Ticket
                 {
                         Id=1,
-                        Count=2,
+                        //Count=2,
                         Price=10
                 },
                 new Ticket
                 {
                         Id=2,
-                        Count=1,
+                        //Count=1,
                         Price=15
                 },
 
@@ -121,36 +121,36 @@ class Program
                 };
                 filmManager.Update(id, film2);
             }
-            else if(command.ToLower().Equals("buy ticket"))
+            else if (command.ToLower().Equals("buy ticket"))
             {
                 var ticket = new Ticket();
                 sessionmanager.Print();
-                Console.Write("hansi id olan filmi almaq isteyirsiz");
+                Console.Write("hansi id olan filmi almaq isteyirsiz:");
                 int id = int.Parse(Console.ReadLine());
                 sessionmanager.Get(id);
                 string[,] place = new string[10, 20];
                 ticket.Id = 1;
                 ticket.Price = 15;
-                for (int  i= 0;  i< 10; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     for (int j = 0; j < 20; j++)
                     {
-                        place[i, j] = "bos ";
+                        place[i, j] = $"{"bos",-5}";
                         Console.Write($"{place[i, j]}");
                     }
                     Console.WriteLine();
                 }
                 Console.WriteLine();
-                Console.Write("sirani secin:");
+                       Console.Write("sirani secin:");
                 int row = int.Parse(Console.ReadLine());
                 Console.Write("yeri secin:");
                 int column = int.Parse(Console.ReadLine());
-                place[row - 1, column - 1] = " *  ";
+                place[row - 1, column - 1] = $"{"dolu",-5}";
                 for (int i = 0; i < 10; i++)
                 {
                     for (int j = 0; j < 20; j++)
                     {
-                        Console.Write($"{place[i, j]} ");
+                        Console.Write($"{place[i, j]}");
                     }
                     Console.WriteLine();
                 }
@@ -263,13 +263,13 @@ class Program
                 var ticket1 = new Ticket
                 {
                     Id = 1,
-                    Count = 2,
+                    //Count = 2,
                     Price = 10
                 };
                 var ticket2 = new Ticket
                 {
                     Id = 2,
-                    Count = 1,
+                    //Count = 1,
                     Price = 15
                 };
                 ticketManager.Add(ticket1);
@@ -297,7 +297,7 @@ class Program
                 var ticket2 = new Ticket
                 {
                     Id = 2,
-                    Count = 2,
+                   // Count = 2,
                     Price = 12
 
                 };
