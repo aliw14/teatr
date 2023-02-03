@@ -136,12 +136,13 @@ class Program
                     for (int j = 0; j < 20; j++)
                     {
                         place[i, j] = $"{"bos",-5}";
+
                         Console.Write($"{place[i, j]}");
                     }
                     Console.WriteLine();
                 }
                 Console.WriteLine();
-                       Console.Write("sirani secin:");
+                Console.Write("sirani secin:");
                 int row = int.Parse(Console.ReadLine());
                 Console.Write("yeri secin:");
                 int column = int.Parse(Console.ReadLine());
@@ -158,9 +159,9 @@ class Program
                 ticketManager.Add(ticket);
                 ticketManager.Get(1);
                 Console.WriteLine("bilet alindi!");
-              
+
             }
-        
+
             else if (command.ToLower().Equals("add hall"))
             {
                 var hall1 = new Hall
@@ -257,7 +258,7 @@ class Program
             }
 
 
-            
+
             else if (command.ToLower().Equals("add ticket"))
             {
                 var ticket1 = new Ticket
@@ -297,7 +298,7 @@ class Program
                 var ticket2 = new Ticket
                 {
                     Id = 2,
-                   // Count = 2,
+                    // Count = 2,
                     Price = 12
 
                 };

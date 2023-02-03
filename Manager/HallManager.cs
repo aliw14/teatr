@@ -5,18 +5,18 @@ namespace TaetrProjekt
     {
         private Hall[] halls = new Hall[2];
 
-        private int _currentIndex ;
+        private int _currentIndex;
 
         public void Add(Entity entity)
         {
-            if (_currentIndex>2)
+            if (_currentIndex > 2)
             {
                 Console.WriteLine("limiti kecdiz 2 zal var");
                 return;
             }
             halls[_currentIndex++] = (Hall)entity;
-           
-            
+
+
         }
 
         public void Delete(int id)
@@ -41,7 +41,8 @@ namespace TaetrProjekt
                     Console.WriteLine($"{id}-li hall silindi");
                     return;
                 }
-            }   if (!found)
+            }
+            if (!found)
                 Console.WriteLine($"{id}-li hall tapilmadi!");
         }
 
@@ -63,7 +64,7 @@ namespace TaetrProjekt
             return null;
         }
 
-       
+
         public void Print()
         {
             foreach (var item in halls)
@@ -78,7 +79,7 @@ namespace TaetrProjekt
         {
             for (int i = 0; i < halls.Length; i++)
             {
-                if (halls[i] == null) 
+                if (halls[i] == null)
                     continue;
                 if (halls[i].Id == id)
                 {

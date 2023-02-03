@@ -8,7 +8,7 @@ namespace TaetrProjekt
         public void Add(Entity entity)
         {
 
-            if (_currentIndex>5)
+            if (_currentIndex > 5)
             {
                 Console.WriteLine("limiti kecdiz yalniz 5 seans vardir");
                 return;
@@ -28,7 +28,7 @@ namespace TaetrProjekt
                 {
                     found = true;
 
-                    for (int j = 0; j < sessions.Length-1; j++)
+                    for (int j = 0; j < sessions.Length - 1; j++)
                     {
                         sessions[j] = sessions[j + 1];
                     }
@@ -74,7 +74,7 @@ namespace TaetrProjekt
         {
             for (int i = 0; i < sessions.Length; i++)
             {
-                if (sessions[i] == null) 
+                if (sessions[i] == null)
                     continue;
                 if (sessions[i].Id == id)
                 {
@@ -86,7 +86,7 @@ namespace TaetrProjekt
             Console.WriteLine("not found!");
         }
 
-        
+
     }
 }
 

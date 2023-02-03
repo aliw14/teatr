@@ -7,13 +7,13 @@ namespace TaetrProjekt
         private int _currentIndex = 0;
         public void Add(Entity entity)
         {
-            if (_currentIndex>6)
+            if (_currentIndex > 6)
             {
                 Console.WriteLine("limiti kecdiz 6 film daxil edile biler");
                 return;
             }
             films[_currentIndex++] = (Film)entity;
-           
+
         }
 
         public void Delete(int id)
@@ -59,7 +59,7 @@ namespace TaetrProjekt
             return null;
         }
 
-       
+
 
         public void Print()
         {
@@ -71,13 +71,13 @@ namespace TaetrProjekt
             }
         }
 
-       
+
 
         public void Update(int id, Entity entity)
         {
             for (int i = 0; i < films.Length; i++)
             {
-                if (films[i] == null) 
+                if (films[i] == null)
                     continue;
                 if (films[i].Id == id)
                 {
@@ -88,7 +88,7 @@ namespace TaetrProjekt
             }
         }
 
-      
+
     }
 }
 
