@@ -86,6 +86,35 @@ namespace TaetrProjekt
             Console.WriteLine("not found!");
         }
 
+        public void OccupySeat(int sessionId, int rowNo, int columnNo)
+        {
+            Session selectedSession = (Session)Get(sessionId);
+
+            if (selectedSession.Seats[rowNo, columnNo] == SeatEnum.Dolu)
+            {
+                Console.WriteLine("Selected seat is not empty");
+
+                return;
+            }
+
+            selectedSession.Seats[rowNo, columnNo] = SeatEnum.Dolu;
+
+        }
+
+        public void PrintSeats(int sessionId)
+        {
+            Session session = (Session)Get(sessionId);
+
+            for (int i = 0; i < session.Seats.GetLength(0); i++)
+            {
+                for (int j = 0; j < session.Seats.GetLength(1); j++)
+                {
+                    Console.Write($"{session.Seats[i,j],-5}");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+        }
 
     }
 }

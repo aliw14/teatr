@@ -121,46 +121,7 @@ class Program
                 };
                 filmManager.Update(id, film2);
             }
-            else if (command.ToLower().Equals("buy ticket"))
-            {
-                var ticket = new Ticket();
-                sessionmanager.Print();
-                Console.Write("hansi id olan filmi almaq isteyirsiz:");
-                int id = int.Parse(Console.ReadLine());
-                sessionmanager.Get(id);
-                string[,] place = new string[10, 20];
-                ticket.Id = 1;
-                ticket.Price = 15;
-                for (int i = 0; i < 10; i++)
-                {
-                    for (int j = 0; j < 20; j++)
-                    {
-                        place[i, j] = $"{"bos",-5}";
 
-                        Console.Write($"{place[i, j]}");
-                    }
-                    Console.WriteLine();
-                }
-                Console.WriteLine();
-                Console.Write("sirani secin:");
-                int row = int.Parse(Console.ReadLine());
-                Console.Write("yeri secin:");
-                int column = int.Parse(Console.ReadLine());
-                place[row - 1, column - 1] = $"{"dolu",-5}";
-                for (int i = 0; i < 10; i++)
-                {
-                    for (int j = 0; j < 20; j++)
-                    {
-                        Console.Write($"{place[i, j]}");
-                    }
-                    Console.WriteLine();
-                }
-                Console.WriteLine();
-                ticketManager.Add(ticket);
-                ticketManager.Get(1);
-                Console.WriteLine("bilet alindi!");
-
-            }
 
             else if (command.ToLower().Equals("add hall"))
             {
@@ -217,14 +178,16 @@ class Program
                     Id = 1,
                     film = "FURY",
                     hall = "zal 1",
-                    Time = "11:30"
+                    Time = "11:30",
+                    Seats = new SeatEnum[10, 20]
                 };
                 var session2 = new Session
                 {
                     Id = 2,
                     film = "American Sniper",
                     hall = "zal 2",
-                    Time = "17:45"
+                    Time = "17:45",
+                    Seats = new SeatEnum[10, 20]
                 };
                 sessionmanager.Add(session1);
                 sessionmanager.Add(session2);
@@ -256,9 +219,6 @@ class Program
                 };
                 sessionmanager.Update(id, session2);
             }
-
-
-
             else if (command.ToLower().Equals("add ticket"))
             {
                 var ticket1 = new Ticket
@@ -303,6 +263,39 @@ class Program
 
                 };
                 hallManager.Update(id, ticket2);
+            }
+            else if (command.ToLower().Equals("buy ticket"))
+            {
+                var ticket = new Ticket();
+                sessionmanager.Print();
+
+                Console.Write("hansi id olan filmi almaq isteyirsiz:");
+                int id = int.Parse(Console.ReadLine());
+
+                sessionmanager.PrintSeats(id);
+
+                Console.Write("Sira secin: ");
+                int row = int.Parse(Console.ReadLine());
+
+                Console.Write("Yer secin: ");
+                int column = int.Parse(Console.ReadLine());
+
+                sessionmanager.OccupySeat(id,row-1,column-1);
+
+                Console.WriteLine("Bilet Alindi");
+
+                //string[,] place = new string[10, 20];
+                ticket.Id = 1;
+                ticket.Price = 15;
+
+            }
+           
+            else if (command == "get ticket")
+            {
+                Console.Write("Bilet Id-si daxil edin: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Console.WriteLine(ticketManager.Get(id));
             }
 
         } while (command.ToLower() != "quit");
